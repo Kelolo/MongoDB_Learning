@@ -1,6 +1,8 @@
 package com.userdbmanagement.mongodb.operations;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,18 +27,31 @@ public class AddUser extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		// TODO Auto-generated method stub
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("Inside adduser servlet");
-		doGet(request, response);
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		if ((name == null || name.length() == 0) || (email == null || email.length() == 0) || (password == null || password.length() == 0)) {
+			request.setAttribute("error", "Please complete all filed");
+			RequestDispatcher reqDes = getServletContext().getRequestDispatcher("/users.jsp");
+			reqDes.forward(request, response);
+//			System.out.println("Please complete all filed");
+		} else {
+			request.setAttribute("success", "User Added");
+			RequestDispatcher reqDes = getServletContext().getRequestDispatcher("/users.jsp");
+			reqDes.forward(request, response);
+		}
+
+//		doGet(request, response);
 	}
 
 }

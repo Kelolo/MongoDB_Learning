@@ -31,6 +31,18 @@
 	
 	<div class="container">
 		<div class="main" align="center">
+			<c:if test="${requestScope.error ne null}">
+				<strong style="color:red">
+					<c:out value="${requestScope.error}"></c:out>
+				</strong>
+			</c:if>
+			
+			<c:if test="${requestScope.success ne null}">
+				<strong style="color:green">
+					<c:out value="${requestScope.success}"></c:out>
+				</strong>
+			</c:if>
+			
 			<form action='<c:out value="${addUserURL}"></c:out>' method="post">
 				Name: <input type="text" name="name"><br>
 				Email: <input type="text" name="email"><br>
