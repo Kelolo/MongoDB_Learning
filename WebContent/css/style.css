@@ -1,1 +1,49 @@
 @CHARSET "ISO-8859-1";
+
+
+body {
+	background-color: rgba(119,136,153,1);
+}
+
+div.social {
+	margin-left: 90%;
+	border: 0px solid #0f799e;
+	margin-botton: 10%;
+	margin-top: 0%;
+}
+
+.nav {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	
+}
+
+.nav li {
+	float: right;
+	width: 160px;
+	margin-top: 0px;
+	position: relative;
+}
+
+.nav li a {
+	background: #2e4f4f;
+	color:  #fffbbb;
+	display: block;
+	padding: 7px 28px;
+	text-decoratio: none;
+	border-top: 4px solid red;
+}
+
+.nav li a:hover {
+	color: white;
+}
+
+
+
+
+
+
+
+
+

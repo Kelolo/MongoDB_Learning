@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="social">
-		<a href="number1"><img src="img/number1.png"></a>
+		<a href="number1"><img src="img/number1.png" height="21px"></a>
 		<a href="number2"><img src="img/number2.png" height="21px"></a>
 	</div>
 	<div class="navigation" align="center">
