@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,9 +26,12 @@
 	</header>
 	
 	<h2 align="center">User Management System</h2>
+	
+	<c:url value="/addUser" var="addUserURL"></c:url>
+	
 	<div class="container">
 		<div class="main" align="center">
-			<form action='' method="post">
+			<form action='<c:out value="${addUserURL}"></c:out>' method="post">
 				Name: <input type="text" name="name"><br>
 				Email: <input type="text" name="email"><br>
 				Password: <input type="password" name="password"><br>
