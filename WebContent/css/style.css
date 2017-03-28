@@ -12,6 +12,25 @@ div.social {
 	margin-top: 0%;
 }
 
+div.container {
+	width: 760px;
+	height: 610px;
+	margin: 50px auto;
+	font-family: "Droid Serif", serif;
+	postition: relative;
+}
+
+div.main {
+	width: 620px;
+	float: left;
+	padding: 10px 55px 40px;
+	background-color: rgba(119,136,153,1);
+	border: 15px solid white;
+	box-shadow: 0 0 10px;
+	border-radius: 2px;
+	font-size: 13px;
+}
+
 .nav {
 	margin: 0px;
 	padding: 0px;

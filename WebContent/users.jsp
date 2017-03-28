@@ -25,5 +25,16 @@
 		<a href="#"><img src="img/number3.png"></a>
 	</header>
 	
+	<h2 align="center">User Management System</h2>
+	<div class="container">
+		<div class="main" align="center">
+			<form action='' method="post">
+				Name: <input type="text" name="name"><br>
+				Email: <input type="text" name="email"><br>
+				Password: <input type="password" name="password"><br>
+				<input type="submit" value="Add User">
+			</form>
+		</div>
+	</div>
 </body>
 </html>
