@@ -42,6 +42,18 @@
 					<c:out value="${requestScope.success}"></c:out>
 				</strong>
 			</c:if>
+			<c:url value="/editUser" var="editURL"></c:url>
+			
+			<%-- Edit Request --%>
+			<c:if test="${requestScope.user ne null}">
+				<form action='<c:out value="${editURL}"></c:out>' method="post">
+					ID: <input type="text" value="${requestScope.user.id}" readonly="readonly" name="id"><br>
+					Name: <input type="text" value="${requestScope.user.name}" name="name"><br>
+					Email ID: <input type="text" value="${requestScope.user.email}" name="email"><br>
+					Password: <input type="password" value="${requestScope.user.password}" name="password"><br>
+					<input type="submit" value="Edit User">
+				</form>
+			</c:if>
 			
 			<form action='<c:out value="${addUserURL}"></c:out>' method="post">
 				Name: <input type="text" name="name"><br>
