@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mongodb.MongoClient;
+import com.userdbmanagement.mongodb.dao.UserDAO;
+import com.userdbmanagement.mongodb.model.User;
+
 /**
  * Servlet implementation class AddUser
  */
@@ -46,6 +50,15 @@ public class AddUser extends HttpServlet {
 			reqDes.forward(request, response);
 //			System.out.println("Please complete all filed");
 		} else {
+			User user = new User();
+			user.setEmail(email);
+			user.setName(name);
+			user.setPassword(password);
+			
+			MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO CLIENT");
+			UserDAO userDAO = new UserDAO(mongo);
+			userDAO.createUser(user);
+			
 			request.setAttribute("success", "User Added");
 			RequestDispatcher reqDes = getServletContext().getRequestDispatcher("/users.jsp");
 			reqDes.forward(request, response);
