@@ -22,4 +22,15 @@ public class UserConverter {
 		return builder.get() ;
 	}
 
+	public static User toUser(DBObject doc) {
+		// TODO Auto-generated method stub
+		User u = new User();
+		u.setEmail(doc.get("email").toString());
+		u.setId(doc.get("_id").toString());
+		u.setName(doc.get("name").toString());
+		u.setPassword(doc.get("password").toString());
+	
+		return u;
+	}
+
 }

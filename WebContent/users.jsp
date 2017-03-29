@@ -49,6 +49,42 @@
 				Password: <input type="password" name="password"><br>
 				<input type="submit" value="Add User">
 			</form>
+			
+			<%--Userlist logic --%>
+			<c:if test="${not empty requestScope.users}">
+				<table>
+					<caption>Registered Users Details</caption>
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email ID</th>
+							<th>Password</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+						
+						<c:forEach items="${requestScope.users}" var = "user">
+							<c:url value="/editUser" var="editURL">
+								<c:param name="id" value="${user.id}"></c:param>
+							</c:url>
+							
+							<c:url value="/deleteUser" var="deleteURL">
+								<c:param name="id" value="${user.id}"></c:param>
+							</c:url>
+							
+							<tr>
+								<td><c:out value="${user.id}"></c:out></td>
+								<td><c:out value="${user.name}"></c:out></td>
+								<td><c:out value="${user.email}"></c:out></td>
+								<td><c:out value="**************"></c:out></td>
+								<td><a href='<c:out value="${editURL}" escapeXml="true"></c:out>'>Edit</a></td>
+								<td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>	
 		</div>
 	</div>
 </body>

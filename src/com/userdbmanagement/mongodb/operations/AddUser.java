@@ -1,5 +1,6 @@
 package com.userdbmanagement.mongodb.operations;
 
+import java.util.List;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -58,8 +59,11 @@ public class AddUser extends HttpServlet {
 			MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO CLIENT");
 			UserDAO userDAO = new UserDAO(mongo);
 			userDAO.createUser(user);
-			
 			request.setAttribute("success", "User Added");
+			
+			List<User> users =  userDAO.readAllUsers();
+			request.setAttribute("users", users);
+			
 			RequestDispatcher reqDes = getServletContext().getRequestDispatcher("/users.jsp");
 			reqDes.forward(request, response);
 		}
